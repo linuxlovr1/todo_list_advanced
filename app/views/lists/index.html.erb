@@ -1,0 +1,19 @@
+<h1>Lists</h1>
+<br />
+<%= if @lists.any? %>
+  <ul>
+    <% @lists.each do |list| %>
+      <li>
+        <%= link_to list.title, list_path(list) %>
+      <li>
+    <% end %>
+  </ul>
+<% else %>
+  <h3>No lists right now, Please create one.</h3>
+<% end %>  
+
+<%= link_to "New list", new_list_path %>
+<br />
+<%= link_to "Delete all", delete_all_lists_path, method: :delete,
+    data: {confirm: "Really delete all?"} %>
+
